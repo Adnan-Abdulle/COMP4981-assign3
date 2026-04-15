@@ -1,0 +1,24 @@
+# Build files
+/build/
+*.o
+*.out
+
+# Executables
+main
+
+# Shared libraries
+*.so
+*.dylib
+
+# macOS
+.DS_Store
+
+# CMake / CLion
+CMakeFiles/
+CMakeCache.txt
+cmake-build-*/
+
+# ndbm database files
+*.db
+*.pag
+*.dir

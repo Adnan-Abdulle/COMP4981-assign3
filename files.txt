@@ -1,0 +1,1 @@
+main src/main.c src/errors.c src/read_write.c src/socket_funcs.c src/http_methods.c
