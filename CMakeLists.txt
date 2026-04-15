@@ -12,21 +12,15 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 
 list(APPEND SOURCES ${CMAKE_SOURCE_DIR}/src/main.c)
+list(APPEND SOURCES ${CMAKE_SOURCE_DIR}/src/socket_funcs.c)
 list(APPEND SOURCES ${CMAKE_SOURCE_DIR}/src/errors.c)
 list(APPEND SOURCES ${CMAKE_SOURCE_DIR}/src/read_write.c)
-list(APPEND SOURCES ${CMAKE_SOURCE_DIR}/src/socket_funcs.c)
-list(APPEND SOURCES ${CMAKE_SOURCE_DIR}/src/http_methods.c)
 
 set(main_SOURCES
     ${CMAKE_SOURCE_DIR}/src/main.c
+    ${CMAKE_SOURCE_DIR}/src/socket_funcs.c
     ${CMAKE_SOURCE_DIR}/src/errors.c
     ${CMAKE_SOURCE_DIR}/src/read_write.c
-    ${CMAKE_SOURCE_DIR}/src/socket_funcs.c
-    ${CMAKE_SOURCE_DIR}/src/http_methods.c
-        src/http_methods_helpers.c
-        include/http_methods_helpers.h
-        src/request_handler.c
-        include/request_handler.h
 )
 
 set(main_HEADERS
@@ -48,6 +42,11 @@ endif()
 
 target_link_directories(main PRIVATE /usr/local/lib${LIBSUFFIX})
 target_link_options(main PRIVATE ${INSTRUMENTATION_FLAGS_LIST})
+
+find_library(LIB_-ldl NAMES -ldl)
+if(LIB_-ldl)
+    target_link_libraries(main PRIVATE ${LIB_-ldl})
+endif()
 
 
 message("C Compiler: ${CMAKE_C_COMPILER}")

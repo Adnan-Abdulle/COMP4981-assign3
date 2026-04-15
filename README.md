@@ -86,6 +86,7 @@ To build the program with all compilers run:
   -Iinclude
 ```
 
+## ** IMPORTANT: Move the /test directory and db_query.c into the build folder**
 ## **Move to the build directory**
 ```bash
   cd build
@@ -94,6 +95,14 @@ To build the program with all compilers run:
 ## **Run the Program**
 ```bash
  ./main
+```
+## **To query the database**
+```bash
+  gcc db_query.c -o query
+```
+
+```bash
+  ./query <key>
 ```
 
 ## **Copy the template to start a new project**

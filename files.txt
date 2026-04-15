@@ -1,1 +1,2 @@
-main src/main.c src/errors.c src/read_write.c src/socket_funcs.c src/http_methods.c
+main src/main.c src/socket_funcs.c src/errors.c src/read_write.c -ldl
+db_query src/db_query.c src/read_write.c src/errors.c
