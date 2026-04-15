@@ -79,13 +79,24 @@ To build the program with all compilers run:
  ./build-all.sh
 ```
 
-## **Build the Shared Library**
+## **Build the Shared Library for MacOS**
 ```bash
   cc -shared -fPIC -o build/librequest_handler.so src/request_handler.c \
   src/http_methods.c src/http_methods_helpers.c src/errors.c src/read_write.c \
-  -Iinclude
+  -I include
 ```
-
+## **Build the Shared Library for Ubuntu**
+```bash
+ cc -shared -fPIC -o build/librequest_handler.so src/request_handler.c \
+  src/http_methods.c src/http_methods_helpers.c src/errors.c src/read_write.c \
+  -I include -lgdbm_compat -lgdbm
+```
+## **Build the Shared Library for FreeBDS**
+```bash
+  cc -shared -fPIC -o build/librequest_handler.so src/request_handler.c \
+  src/http_methods.c src/http_methods_helpers.c src/errors.c src/read_write.c \
+  -Iinclude -lndbm
+```
 ## ** IMPORTANT: Move the /test directory and db_query.c into the build folder**
 ## **Move to the build directory**
 ```bash
